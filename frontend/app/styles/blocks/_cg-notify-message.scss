@@ -1,0 +1,16 @@
+.cg-notify-message {
+  border-radius: 0;
+  color: #000;
+  border-width: 2px;
+
+  &.warning {
+    background: #FFE577;
+    border-color: #ffd009;
+  }
+
+  &.error {
+    color: #CE3422;
+    background: #FFF0DB;
+    border-color: #DE3333;
+  }
+}

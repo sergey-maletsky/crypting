@@ -1,0 +1,22 @@
+{
+  "presets": [
+      ["env", {
+          "targets": {
+              "chrome": 54,
+              "edge": 13,
+              "firefox": 49,
+              "ie": 10,
+              "ios": 10,
+              "safari": 9,
+              "opera": 41
+          },
+          "useBuiltIns": true
+      }]
+  ],
+  "plugins": [
+        "transform-object-assign",
+        "transform-regenerator",
+        "syntax-async-functions",
+        "transform-object-rest-spread"
+  ]
+}

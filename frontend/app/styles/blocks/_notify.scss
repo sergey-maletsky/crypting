@@ -1,0 +1,26 @@
+.notify-wrap {
+    margin: 32px 0 16px;
+}
+
+.notify {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 64px;
+    background: #fff;
+    border: solid 1px $azure;
+    padding: 16px 16px 16px 64px;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 32px;
+        top: 50%;
+        margin-top: -8px;
+        width: 16px;
+        height: 16px;
+        background: url($icons + 'info-blue.svg') no-repeat center/contain;
+    }
+}

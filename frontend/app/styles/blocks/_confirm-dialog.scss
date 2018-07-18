@@ -1,0 +1,64 @@
+.confirm-dialog {
+    font-size: 14px;
+
+    .ngdialog-close {
+        display: none;
+    }
+
+    &__content {
+        position: relative;
+        padding: 15px 0 30px 70px;
+
+        &-ico {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            color: #858992;
+            font-size: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin-top: -30px;
+            animation: .8s Wobble .6s;
+        }
+    }
+
+    &__footer {
+        padding: 25px 0 0;
+        border-top: 1px solid $gray;
+        text-align: right;
+
+        &-btn {
+            margin-right: 10px;
+        }
+    }
+}
+
+@keyframes Wobble {
+    from {
+        transform: none;
+    }
+
+    15% {
+        transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+
+    30% {
+        transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+
+    45% {
+        transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+
+    60% {
+        transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+
+    75% {
+        transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+
+    to {
+        transform: none;
+    }
+}

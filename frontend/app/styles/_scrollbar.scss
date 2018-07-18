@@ -1,0 +1,22 @@
+.mCSB_scrollTools a + .mCSB_draggerContainer {
+    margin: 0;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 1px;
+    background: #e6e6e6;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: $dusky-blue;
+    width: 4px;
+    border-radius: 0;
+}
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+    background-color: $dusky-blue;
+}
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+    background-color: $dusky-blue;
+}

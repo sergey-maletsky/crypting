@@ -1,0 +1,46 @@
+<div class="combobox" ng-outside-click="$ctrl.outsideClick">
+    <div class="combobox-search">
+        <button type="button"
+                ng-click="$ctrl.handleTrigger()"
+                class="combobox__trigger" ng-class="$ctrl.activeClass()"></button>
+
+        <input type="text"
+               class="form-control combobox__input"
+               name="{{$ctrl.name}}"
+               ng-model="$ctrl.inputValue"
+               ng-change="$ctrl.onChangeInput()"
+               placeholder="{{$ctrl.inputPlaceholder}}"
+               ng-required="$ctrl.requiredInput"
+        />
+
+        <div class="combobox-dropdown" ng-if="$ctrl.isOpenDropDown">
+            <div class="combobox-dropdown__item"
+                 ng-repeat="item in $ctrl.dropdownItems"
+
+                 ng-click="$ctrl.onSelectItem(item)"
+                 title="{{$ctrl.getValue(item)}}"
+            >
+                {{$ctrl.getValue(item)}}
+            </div>
+
+            <div class="combobox-dropdown__empty" ng-if="$ctrl.dropdownItems.length === 0">
+                {{ 'NO_SEARCH_RESULTS' | translate }}
+            </div>
+        </div>
+    </div>
+
+    <input ng-if="$ctrl.listName"
+           type="hidden"
+           name="{{$ctrl.listName}}"
+           ng-model="$ctrl.inputListValue"
+           ng-required="$ctrl.requiredList"
+    >
+    <div class="combobox-list" ng-if="$ctrl.list.length > 0">
+        <div class="combobox-list__item" ng-repeat="item in $ctrl.list track by item.id">
+            {{$ctrl.getValue(item)}}
+            <button type="button" class="combobox-list__item-remove" ng-click="$ctrl.removeItemFromList(item)">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

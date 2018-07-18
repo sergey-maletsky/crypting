@@ -1,0 +1,7 @@
+<div class="modal" ng-if="show">
+  <div class="modal-overlay" ng-click="hideModal()"></div>
+  <div class="modal-wrap">
+    <button type="button" class="modal__close" ng-click="hideModal()" ng-if="closeBtn"></button>
+    <div class="modal-content" ng-transclude></div>
+  </div>
+</div>

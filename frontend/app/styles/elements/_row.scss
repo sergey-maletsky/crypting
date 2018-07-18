@@ -1,0 +1,23 @@
+snm-row, snm-row-edit {
+    display: block;
+    margin: 0 0 24px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.row {
+    margin: 0 0 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__data {
+        display: inline-block;
+        max-width: 100%;
+        word-wrap: break-word;
+        overflow: hidden;
+    }
+}

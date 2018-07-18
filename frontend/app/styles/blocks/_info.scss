@@ -1,0 +1,147 @@
+.info {
+    background: #fff;
+    padding: 32px 32px 40px;
+    margin: 16px 0 32px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.info-half {
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
+
+    .info-content {
+        flex: 0 0 50%;
+        padding: 32px 32px 0;
+        //
+        //&:last-child {
+        //    padding-bottom: 0;
+        //}
+
+        * {
+            flex: 1 1;
+        }
+    }
+}
+
+.info-block {
+    margin: 0 0 48px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.info-section {
+    width: 33.3333%;
+    padding: 0 24px 0 0;
+}
+
+.info-main-section {
+    width: 480px;
+    padding: 0 64px 0 0;
+}
+
+.info-sub-section {
+    width: 415px;
+}
+
+.info-column-section {
+    width: 360px;
+    padding: 0 64px 0 0;
+}
+
+.info-img {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border: solid 1px #e6e6e6;
+    padding: 12px;
+    text-align: center;
+    margin: 0 32px 0 0;
+    overflow: hidden;
+
+    &._datamatrix {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &._circle {
+        border-radius: 50%;
+    }
+
+    &._no-pdn {
+        padding: 0;
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+        max-height: 100%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+    }
+}
+
+.info-header {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 24px;
+
+    &._lg-mrn {
+        margin-bottom: 32px;
+    }
+
+    &__btn {
+        float: right;
+        margin: 0 0 0 24px;
+    }
+
+    &__title {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+    }
+}
+
+.info-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+
+    &__headline {
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        margin: 0 0 24px;
+    }
+}
+
+.info-footer {
+    margin-top: 32px;
+
+    &__btn {
+        margin-right: 24px;
+    }
+}
+
+td-barcode {
+    margin-top: 5px;
+}

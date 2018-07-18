@@ -1,0 +1,20 @@
+TRANSLATES:
+    SNM:
+        EN:
+          ENTER_LK: 'Вход в личный кабинет'
+          REGISTER_DESCR1: 'Впервые в системе?'
+          REGISTER_DESCR2: 'Зарегистрируйтесь'
+          LK: 'Личный кабинет'
+          NO_DATA: 'Нет данных'
+          NO_SEARCH_RESULTS: 'Ничего не найдено'
+          BUTTONS:
+            REGISTER: 'Зарегистрироваться'
+          PAGE404:
+            TITLE: 'Страница не найдена'
+            TO_MAIN: 'На главную'
+          MODULES:
+            REGISTRATION:
+              REGISTRATION: 'Регистрация'
+              THANKS: 'Спасибо за регистрацию.'
+              AFTERWORDS1: 'Спасибо за регистрацию.'
+              E_SIGNATURE: 'Электронная подпись'

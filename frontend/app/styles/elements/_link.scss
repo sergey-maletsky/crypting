@@ -1,0 +1,45 @@
+.ui-link {
+    font-weight: 500;
+    color: $azure;
+    cursor: pointer;
+    transition: .25s;
+    border-bottom: 0;
+    text-decoration: none;
+    &:hover {
+        border-bottom: 1px solid $azure;
+    }
+}
+
+.link {
+    position: relative;
+    color: $azure;
+    background: none;
+    border: none;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    transition: .25s;
+    cursor: pointer;
+    &:hover {
+        border-bottom-color: $azure;
+    }
+    &._bold {
+        font-weight: 500;
+    }
+
+    &._remove {
+        color: #d0021b;
+        border: 0;
+        font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: -25px;
+        display: block;
+    }
+
+    &__minus {
+        font-weight: bolder;
+        font-size: 22px;
+        display: inline-block;
+        margin: 0 10px;
+    }
+}

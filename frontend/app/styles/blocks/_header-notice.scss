@@ -1,0 +1,43 @@
+.header-notice {
+  position: relative;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin: 0 24px 0 0;
+
+  &:hover {
+    .path {
+      fill: $azure;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    width: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    .path {
+      transition: .3s;
+    }
+
+    &-quantity {
+        display: block;
+        position: absolute;
+        right: -1px;
+        top: 50%;
+        margin-top: -19px;
+        width: 16px;
+        height: 12px;
+        line-height: 13px;
+        border-radius: 6px;
+        background-color: #d0021b;
+        font-size: 8px;
+        color: #fff;
+        text-align: center;
+    }
+  }
+}

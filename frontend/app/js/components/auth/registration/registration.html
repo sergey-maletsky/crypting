@@ -1,0 +1,54 @@
+<div class="reg-wrap">
+    <div class="reg">
+        <div class="reg-header">
+            <div class="reg-header__headline">{{ 'MODULES.REGISTRATION.REGISTRATION' | translate }}</div>
+            <a ui-sref="app.non_auth.loginKep" class="reg-header__comeback"></a>
+        </div>
+
+        <div class="reg-notification" ng-if="$ctrl.model.done">
+            <div class="h2">
+                {{ 'MODULES.REGISTRATION.THANKS' | translate }}
+            </div>
+            <div class="reg-notification__text">
+                {{ 'MODULES.REGISTRATION.AFTERWORDS1' | translate }} <br>
+            </div>
+        </div>
+
+        <div class="reg-steps" ng-if="!$ctrl.model.done">
+            <div class="reg-step">
+                <div class="reg-step__headline" ng-class="$ctrl.setStepDoneClass()">{{ 'MODULES.REGISTRATION.E_SIGNATURE' | translate }}</div>
+                <div class="reg-step-content fade" ng-if="$ctrl.model.currentStep === 0">
+                    <ui-select ng-model="$ctrl.model.signature" search-enabled="false" theme="select2">
+                        <ui-select-match placeholder="{{ 'MODULES.REGISTRATION.E_SIGNATURE' | translate }}">
+                            <div class="reg-item">
+                                <div class="reg-item__company">
+                                    {{$select.selected.company}} {{$select.selected.type}}
+                                </div>
+                                <div class="reg-item__name" ng-bind-html="$select.selected.name"></div>
+                            </div>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in $ctrl.model.signaturesList | filter: $select.search">
+                            <div class="reg-item">
+                                <div class="reg-item__company">
+                                    {{item.company}} {{item.type}}
+                                </div>
+                                <div class="reg-item__limit">
+                                    {{item.limit}}
+                                </div>
+                                <div class="reg-item__name" ng-bind-html="item.name"></div>
+                            </div>
+                        </ui-select-choices>
+                    </ui-select>
+                    <div class="reg-step-footer">
+                        <button
+                            class="button _blue reg-submit"
+                            ng-disabled="!$ctrl.model.signature"
+                            ng-click="$ctrl.submitForm()"
+                        >{{ 'BUTTONS.REGISTER' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

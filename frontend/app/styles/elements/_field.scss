@@ -1,0 +1,148 @@
+.field {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    margin-bottom: 24px;
+    background: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+    border: solid 1px #acadb6;
+    z-index: 5;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:before {
+        display: block;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        margin-top: -8px;
+        width: 16px;
+        height: 16px;
+        background: no-repeat center/contain;
+        z-index: -1;
+    }
+
+    &__arrow {
+        background: none;
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        right: 21px;
+        top: 27px;
+        background: 0 0;
+        border: none;
+        border-right: 2px solid #212c42;
+        border-bottom: 2px solid #212c42;
+        transition: .15s;
+        transform: rotate(225deg);
+
+        ._collapsed & {
+            transform: rotate(45deg);
+        }
+    }
+
+    &._datepicker {
+        margin-bottom: 0;
+
+        &:before {
+            content: '';
+            background-image: url($icons + 'calendar.svg');
+        }
+    }
+
+    &._search {
+        &:before {
+            content: '';
+            background-image: url($icons + 'search.svg');
+        }
+    }
+
+    &._datepicker &__input {
+        padding-right: 40px;
+    }
+
+    &__label {
+        position: absolute;
+        top: 25px;
+        left: 16px;
+        line-height: 1;
+        color: #a9abb4;
+        z-index: -1;
+        transition: .25s;
+
+        ._invalid & {
+            font-size: 14px;
+            top: 10px;
+            color: red;
+        }
+
+        ._empty & {
+            z-index: 1;
+            font-size: 14px;
+            top: 10px;
+        }
+
+        ._not-empty & {
+            font-size: 14px;
+            line-height: 1;
+            top: 10px;
+            z-index: 1;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        right: 4px;
+        top: 18px;
+
+    }
+
+    &__prefix {
+        display: none;
+        padding-left: 15px;
+        float: left;
+        margin-top: 30px;
+        margin-right: 2px;
+
+        ._not-empty & {
+            display: block;
+        }
+    }
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        padding: 25px 15px 0;
+        font: inherit;
+        background: none;
+
+        &._with-prefix {
+            padding-left: 0;
+            width: auto;
+        }
+
+        &:disabled, &.disabled {
+            background: #f7f9f9;
+            color: #abadb6;
+        }
+
+        &:focus + .field__prefix {
+            display: block;
+        }
+
+        &:focus,
+        &.ng-not-empty {
+            & ~ .field__label {
+                font-size: 14px;
+                line-height: 1;
+                top: 10px;
+                z-index: 1;
+            }
+        }
+    }
+}

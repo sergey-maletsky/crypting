@@ -1,0 +1,284 @@
+.button {
+    display: inline-block;
+    vertical-align: middle;
+    background: $gray;
+    height: 48px;
+    line-height: 46px;
+    padding: 0 23px;
+    border-radius: 2px;
+    transition: .3s;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    background: none;
+    border: 1px solid transparent;
+    &:disabled,
+    &[disabled] {
+        color: #fff !important;
+        background: #abadb5 !important;
+        cursor: default !important;
+    }
+
+    &._blue {
+        background: $blue;
+        color: #fff;
+        &:hover {
+            background: $blue-muffled;
+        }
+    }
+
+    &._transparent {
+        border-color: $blue;
+        color: $blue;
+        background: transparent;
+        &:disabled,
+        &[disabled] {
+            border-color: #abadb6 !important;
+            color: #abadb6 !important;
+            background: transparent !important;
+        }
+        &:hover {
+            background: $blue;
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        background: $gray;
+    }
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+    height: 32px;
+    line-height: 30px;
+    border-radius: 2px;
+    border: solid 1px transparent;
+    padding: 0 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 600;
+    font-family: inherit;
+    text-decoration: none;
+    color: #2c3b54;
+
+    &:disabled,
+    &[disabled] {
+        color: #fff !important;
+        background: #abadb5 !important;
+        cursor: default !important;
+    }
+    &:before {
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 16px;
+        top: 50%;
+        margin-top: -8px;
+        background: no-repeat center/contain;
+    }
+    &:hover {
+        background: #f6f6f6;
+        border-color: transparent;
+    }
+
+    &._blue {
+        background: $azure;
+        color: #fff;
+
+        &:hover {
+            background: $dark;
+        }
+    }
+
+    &._no-border {
+        border: 0;
+    }
+
+    &._transparent {
+        border-color: $azure;
+        color: $azure;
+
+        &:hover {
+            background: $azure;
+            color: #fff;
+        }
+    }
+
+    &._add {
+        border-color: $azure;
+        color: $azure;
+        padding-left: 48px;
+
+        &:before {
+            content: '';
+            background-image: url($icons + 'plus-blue.svg');
+        }
+
+        &:hover {
+            color: #fff;
+            background: $azure;
+
+            &:before {
+                content: '';
+                background-image: url($icons + 'plus-white.svg');
+            }
+        }
+    }
+
+    &._edit {
+        border-color: $azure;
+        color: $azure;
+        padding-left: 48px;
+        &:before {
+            content: '';
+            background-image: url($icons + 'edit-blue.svg');
+        }
+        &:hover {
+            color: #fff;
+            background: $azure;
+
+            &:before {
+                background-image: url($icons + 'edit-white.svg');
+            }
+        }
+    }
+
+    &._remove {
+        color: #bf2827;
+        border-color: #bf2827;
+        padding-left: 48px;
+
+        &:before {
+            content: '';
+            background-image: url($icons + 'error.svg');
+        }
+
+        &:hover {
+            color: #fff;
+            background: #bf2827;
+
+            &:before {
+                background-image: url($icons + 'error-white.svg');
+            }
+        }
+    }
+
+    &._filter {
+        border-color: $azure;
+        color: $azure;
+        padding-left: 48px;
+        &:before {
+            content: '';
+            background-image: url($icons + 'filter-blue.svg');
+        }
+        &:hover, &._active {
+            color: #fff;
+            background: $azure;
+            &:before {
+                background-image: url($icons + 'filter-white.svg');
+            }
+        }
+        &._active {
+            &:before {
+                animation: rubberBand 1.2s forwards;
+            }
+        }
+    }
+
+    &._download {
+        padding-right: 48px;
+        color: $azure;
+        &:before {
+            content: '';
+            left: auto;
+            right: 16px;
+            background-image: url($icons + 'import-blue.svg');
+        }
+        &:hover {
+            background: transparent;
+        }
+    }
+
+    &._refresh {
+        padding-right: 48px;
+        &:before {
+            content: '';
+            left: auto;
+            right: 16px;
+            background-image: url($icons + 'refresh-blue.svg');
+        }
+        &:hover {
+            color: #fff;
+            background: $azure;
+            &:before {
+                background-image: url($icons + 'refresh-white.svg');
+            }
+        }
+    }
+
+    &._confirm {
+        border-color: $azure;
+        color: $azure;
+        padding-left: 48px;
+        &:before {
+            content: '';
+            background-image: url($icons + 'done-blue.svg');
+        }
+
+        &:hover {
+            color: #fff;
+            background: $azure;
+            &:before {
+                background-image: url($icons + 'done-white.svg');
+            }
+        }
+    }
+
+    &._decline {
+        color: #bf2827;
+        border-color: #bf2827;
+        padding-left: 48px;
+
+        &:before {
+            content: '';
+            background-image: url($icons + 'close-red.svg');
+        }
+
+        &:hover {
+            color: #fff;
+            background: #bf2827;
+
+            &:before {
+                background-image: url($icons + 'close-white.svg');
+            }
+        }
+    }
+
+    &._right-pdn {
+        padding-right: 32px;
+    }
+
+    &._left-pdn {
+        padding-left: 32px;
+    }
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 16px;
+
+    &:hover {
+        color: $blue;
+    }
+}

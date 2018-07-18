@@ -1,0 +1,95 @@
+.dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+
+    transition: transform 0.4s, opacity 0.2s;
+    will-change: transform, opacity;
+
+    &.ng-enter {
+        opacity: 0;
+        transform: translate(0, -50%);
+    }
+
+    &.ng-enter.ng-enter-active {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    &.ng-leave {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    &.ng-leave.ng-leave-active {
+        opacity: 0;
+        transform: translate(0, -50%);
+    }
+}
+
+.dialog {
+    &-layout {
+        width: 100%;
+        position: absolute;
+        height: 10000000px;
+        background: rgba(0, 0, 0, 0.73);
+        z-index: 1;
+    }
+    &-content {
+        z-index: 2;
+        background: #ffffff;
+        max-width: 600px;
+        width: 90%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+
+        &__head {
+            padding: 10px;
+            background: $blue;
+            color: #ffffff;
+            h4 {
+                font-size: 25px;
+                display: inline-block;
+                font-family: "Roboto Condensed", sans-serif;
+                font-weight: 500;
+            }
+            .close {
+                display: inline-block;
+                float: right;
+                transition: .25;
+
+                i {
+                    cursor: pointer;
+                    font-size: 31px;
+                }
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+        &__body {
+            padding: 10px 15px;
+            min-height: 100px;
+        }
+    }
+}
+
+.dialog-errors{
+    ul{
+        list-style-type: none;
+    }
+    li{
+        margin-bottom: 20px;
+        font-size: 17px;
+    }
+    span.title{
+        font-weight: 600;
+    }
+}

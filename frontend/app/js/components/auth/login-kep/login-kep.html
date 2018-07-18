@@ -1,0 +1,62 @@
+<div class="auth-wrap">
+    <div class="auth-page">
+        <ui-select ng-model="$ctrl.model.signature" search-enabled="false" theme="select2">
+            <ui-select-match placeholder="Электронная подпись">
+                <div class="reg-item">
+                    <div class="reg-item__company">
+                        {{$select.selected.company}} {{$select.selected.type}}
+                    </div>
+                    <div class="reg-item__name" ng-bind-html="$select.selected.name"></div>
+                </div>
+            </ui-select-match>
+            <ui-select-choices repeat="item in $ctrl.model.signaturesList | filter: $select.search">
+                <div class="reg-item">
+                    <div class="reg-item__company">
+                        {{item.company}} {{item.type}}
+                    </div>
+                    <div class="reg-item__limit">
+                      {{item.fromDate | date: 'dd.MM.yyyy' }} – {{item.toDate | date: 'dd.MM.yyyy' }}
+                    </div>
+                    <div class="reg-item__name" ng-bind-html="item.name"></div>
+                </div>
+            </ui-select-choices>
+        </ui-select>
+        <div class="reg-step-footer">
+            <button
+                class="button _blue"
+                ng-disabled="$ctrl.checkSignature()"
+                ng-click="$ctrl.login()"
+            >Вход в личный кабинет</button>
+
+            <button class="link reg-step-footer__link" ng-click="$ctrl.togglePopup()">Как войти по ЭП?</button>
+        </div>
+
+        <div class="auth-page__description">
+            Впервые в системе? <a ui-sref="app.non_auth.reg" class="link">Зарегистрируйтесь</a>
+        </div>
+    </div>
+</div>
+<div class="popup" ng-if="$ctrl.model.popup">
+    <div class="popup__overlay" ng-click="$ctrl.togglePopup()"></div>
+    <div class="popup-content">
+        <button class="popup__close" ng-click="$ctrl.togglePopup()"></button>
+        <div class="h1">Как войти по ЭП</div>
+        <div class="popup__subtitle">
+            Вход в систему осуществляется с помощью
+            электронной подписи.
+        </div>
+        <ol class="popup__list">
+            <li>
+              Установите <a href="https://www.cryptopro.ru/products/csp/downloads" class="link" target="_blank">плагин для работы с электронной подписью.</a> После установки плагина перезапустите браузер.
+            </li>
+            <li>
+              Присоедините к компьютеру носитель ключа электронной подписи, это может быть USB-ключ, УЭК или смарт-карта.
+              Сертификат электронной подписи можно получить в одном из аккредитованных Минкомсвязью России <a
+              href="http://minsvyaz.ru/uploaded/files/aktualnyii-perechen-akkreditovannyih-uts-na-21122017.xls" target="_blank" class="link">удостоверяющих центров.</a>
+            </li>
+            <li>
+              Включите доступ плагину в настройках своего браузера.
+            </li>
+        </ol>
+    </div>
+</div>

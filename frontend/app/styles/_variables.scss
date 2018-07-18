@@ -1,0 +1,34 @@
+$desktopWidth: 1200px;
+$tabletWidth: 992px;
+$mobileWidth: 670px;
+$desktop: screen and (max-width: $desktopWidth);
+$tablet: screen and (max-width: $tabletWidth);
+$mobile: screen and (max-width: $mobileWidth);
+
+//new-colors
+$azure: #1a99f4;
+$dark: #212c42;
+$dusky-blue: #475f8f;
+$pale-grey: #f7f9f9;
+$blue-muffled: #4c5f8c;
+$cool-grey: #abadb5;
+
+//colors
+$blue: #1a99f4;
+$blue-light: #4d90fe;
+
+$blue-dark: #232c40;
+$blue-darken: #212c42;
+
+$separate: #475f8f;
+
+$gray: #D1D3D4;
+$gray-light: #BFCEE0;
+
+//fonts
+$Arial: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$Sans: 'PT Sans', "Helvetica Neue", Helvetica, sans-serif;
+$Open: 'Open Sans', sans-serif;
+
+//pathes
+$icons: '../images/icons/';

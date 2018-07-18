@@ -1,0 +1,20 @@
+.not-found {
+    margin: 140px 0 120px;
+
+    &__title {
+        font-size: 120px;
+        line-height: 1.07;
+        font-weight: 600;
+        margin: 0 0 8px;
+    }
+    &__subtitle {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.25;
+        margin: 0 0 16px;
+    }
+    &__text {
+        max-width: 450px;
+        margin: 0 0 24px;
+    }
+}

@@ -1,0 +1,30 @@
+.switcher {
+  font-size: 0;
+
+  &__btn {
+    height: 32px;
+    line-height: 30px;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: $azure;
+    padding: 0 16px;
+    border: solid 1px $azure;
+    border-right: none;
+    cursor: pointer;
+
+    &:first-child {
+      border-radius: 2px 0 0 2px;
+    }
+
+    &:last-child {
+      border-radius: 0 2px 2px 0;
+      border-right: solid 1px $azure;
+    }
+
+    &._active {
+      background: $azure;
+      color: #fff;
+    }
+  }
+}

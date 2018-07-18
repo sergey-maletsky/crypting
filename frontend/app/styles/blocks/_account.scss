@@ -1,0 +1,108 @@
+.account {
+    position: relative;
+    float: right;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 80px;
+    text-align: right;
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #212c42;
+        z-index: -1;
+    }
+
+  &:hover {
+    .account-menu {
+        transform: translate(0);
+        transition: .2s;
+    }
+  }
+}
+
+.account-avatar {
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 0 0 8px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.account-info {
+  line-height: normal;
+  font-size: 12px;
+
+  &__label {
+    line-height: 1;
+    color: #abadb6;
+    margin: 0 0 4px;
+  }
+
+  &__username {
+    text-transform: uppercase;
+    line-height: 1.17;
+    font-weight: 600;
+  }
+}
+
+.account-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: -2;
+    white-space: nowrap;
+    background: #fff;
+    color: $dark;
+    text-align: right;
+    border: solid 1px $cool-grey;
+    border-top: none;
+    transform: translate(0, -100%);
+    transition: .25s;
+
+  &__item {
+    &-link {
+      display: block;
+      line-height: 40px;
+      padding: 0 16px;
+      color: inherit;
+      text-decoration: inherit;
+      transition: .25s;
+
+      &:hover {
+        background-color: #ebf4fa;
+      }
+    }
+
+    &-avatar {
+      display: inline-block;
+      vertical-align: middle;
+      width: 25px;
+      height: 25px;
+      margin: 0 10px 0 0;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    &-name {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

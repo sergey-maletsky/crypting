@@ -1,0 +1,160 @@
+.icon {
+    &__status {
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+    }
+    &__absolute {
+        position: relative;
+        padding-left: 32px;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+    }
+    &__notifications {
+        &-all {
+            &:before {
+                background-image: url($icons + 'refresh-blue.svg');
+            }
+        }
+        &-info {
+            &:before {
+                background-image: url($icons + 'info.svg');
+            }
+        }
+        &-error {
+            &:before {
+                background-image: url($icons + 'error.svg');
+            }
+        }
+        &-warning {
+            &:before {
+                background-image: url($icons + 'alert.svg');
+            }
+        }
+        &-success {
+            &:before {
+                background-image: url($icons + 'done.svg');
+            }
+        }
+    }
+    &__cis {
+        &-emitted {
+            &:before {
+                background-image: url($icons + "emitted.svg");
+            }
+        }
+        &-introduced,
+        &-introduced_returned
+        {
+            &:before {
+                background-image: url($icons + "refresh.svg");
+            }
+        }
+        &-applied {
+            &:before {
+                background-image: url($icons + "print.svg");
+            }
+        }
+        &-aggregation {
+            &:before {
+                background-image: url($icons + "agregation.svg");
+            }
+        }
+        &-disaggregation {
+            &:before {
+                background-image: url($icons + "desagregation.svg");
+            }
+        }
+        &-owner_change {
+            &:before {
+                background-image: url($icons + "movement.svg");
+            }
+        }
+        &-withdrawn {
+            &:before {
+                background-image: url($icons + "sold-out-status.svg");
+            }
+        }
+        &-owner_error {
+            &:before {
+                background-image: url($icons + "error.svg");
+            }
+        }
+        &-written_off {
+            &:before {
+                background-image: url($icons + "write-off.svg");
+            }
+        }
+    }
+    &__good {
+        &-pack {
+            &:before {
+                background-image: url($icons + "pack.svg");
+            }
+        }
+        &-block {
+            &:before {
+                background-image: url($icons + "pack.svg");
+            }
+        }
+        &-set {
+            &:before {
+                background-image: url($icons + "set.svg");
+            }
+        }
+        &-box {
+            &:before {
+                background-image: url($icons + "box.svg");
+            }
+        }
+    }
+
+    &__info {
+        &:before {
+            background-image: url($icons + "info-blue.svg");
+            background-size: 100%;
+            margin-left: 8px;
+        }
+    }
+
+    &__check {
+        &:before {
+            background-image: url($icons + "check-ok.svg");
+            background-size: 100%;
+            margin-left: 8px;
+        }
+    }
+
+    &__shifted {
+        position: relative;
+        top: -8px;
+    }
+
+    &__catalog {
+        &:before {
+            background-image: url($icons + "catalog.svg");
+            background-size: 100%;
+            margin-left: 8px;
+        }
+    }
+
+    &__plus {
+        &:before {
+            background-image: url($icons + 'plus-white.svg');
+        }
+    }
+
+    &__close {
+        &:before {
+            background-image: url($icons + 'close.svg');
+        }
+    }
+}

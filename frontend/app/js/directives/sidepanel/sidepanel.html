@@ -1,0 +1,7 @@
+<div class="popup" ng-if="show">
+  <div class="popup__overlay" ng-click="hidePanel()"></div>
+  <div class="popup-content">
+    <button class="popup__close" ng-click="hidePanel()"></button>
+    <div class="popup-wrap" ng-transclude></div>
+  </div>
+</div>

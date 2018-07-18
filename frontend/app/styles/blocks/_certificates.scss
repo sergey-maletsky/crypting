@@ -1,0 +1,30 @@
+.certificates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 -32px;
+}
+.certificates-item {
+  position: relative;
+  width: 512px;
+  margin: 0 0 32px;
+  border: solid 1px $cool-grey;
+  padding: 24px;
+  color: #abadb6;
+
+  &._active {
+    padding-bottom: 21px;
+    border-bottom: 4px solid #2fa3f5;
+    color: $dark;
+  }
+
+  &._locked {
+    color: #abadb6;
+    border: solid 1px $cool-grey;
+    padding-bottom: 24px;
+  }
+
+  &__text {
+    max-width: 400px;
+  }
+}

@@ -1,0 +1,237 @@
+.reg-wrap {
+    text-align: center;
+    background: linear-gradient(to bottom, #232c40, #232c40 240px, transparent 240px);
+    min-height: calc(100vh - 157px);
+    padding: 46px 0 64px;
+}
+
+.reg-content {
+  &.ng-enter {
+    max-height: 0;
+    transition: 1.2s;
+    overflow: hidden;
+  }
+  &.ng-enter.ng-enter-active {
+    max-height: 1000px;
+  }
+}
+.reg-submit {
+  margin-top: 24px;
+}
+
+.reg-selects {
+  margin: 32px 0 0;
+  &.ng-enter {
+    max-height: 0;
+    transition: 1.2s;
+    overflow: hidden;
+  }
+  &.ng-enter.ng-enter-active {
+    max-height: 1000px;
+  }
+}
+
+.reg-select {
+  margin: 0 0 32px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.reg-operators {
+    margin: 32px 0 0;
+
+    &__headline {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0 0 16px;
+        color: $dark;
+    }
+    &__checkbox {
+        min-width: 256px;
+        margin: 0 0 16px;
+    }
+}
+
+.reg-logo {
+    display: block;
+    margin: 0 0 64px;
+    text-decoration: none;
+    color: inherit;
+
+    &__img {
+        display: inline-block;
+        vertical-align: top;
+        width: 32px;
+        height: 32px;
+        margin: 0 8px 0 0;
+    }
+
+    &__text {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 1.33;
+        letter-spacing: 0.3px;
+        font-size: 12px;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+}
+
+.reg-item {
+    font-size: 14px;
+    line-height: 1.43;
+    color: $dark;
+
+    &__label {
+        color: #abadb6;
+    }
+
+    &__name {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+.reg-header {
+    max-width: 544px;
+    margin: 0 auto 32px;
+    color: #fff;
+
+    &__headline {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    &__comeback {
+        position: relative;
+        display: block;
+        float: right;
+        width: 16px;
+        height: 16px;
+        margin-top: 15px;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 7px;
+            top: 0px;
+            width: 2px;
+            height: 16px;
+            border-radius: 2px;
+            background: #f7f9f9;
+            transition: .3s;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            &:before {
+                width: 3px;
+                background: $azure;
+                transform: rotate(-270deg);
+            }
+
+            &:after {
+                width: 10px;
+                height: 10px;
+                background: transparent;
+                top: 3px;
+                left: 0;
+                border-bottom: 3px solid $azure;
+                border-right: 3px solid $azure;
+                transform: rotate(-225deg);
+            }
+        }
+    }
+}
+
+.reg-step {
+  background: #fff;
+  margin: 0 0 16px;
+  transition: .4s;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__headline {
+    padding: 20px 32px;
+    font-weight: 600;
+
+    &._done {
+      border-color: #2e3d5c;
+    }
+  }
+
+  &-content {
+    padding: 20px 32px 32px;
+  }
+
+  &-footer {
+      margin: 24px 0 0;
+      font-size: 14px;
+
+      &__link {
+          margin: 0 0 0 30px;
+      }
+  }
+
+  &__input {
+    margin-bottom: 16px;
+  }
+
+    &__field {
+        width: 260px;
+    }
+}
+
+.reg {
+    display: inline-block;
+    width: 100%;
+    max-width: 608px;
+    text-align: left;
+}
+
+.reg-notification {
+    background-color: #fff;
+    padding: 32px;
+    margin-bottom: 40px;
+
+    &__text {
+        margin: 32px 0;
+        max-width: 445px;
+    }
+
+    &.ng-enter {
+        transform: translate(0, 40px);
+        transition: 0.7s;
+    }
+
+    &.ng-enter.ng-enter-active {
+        transform: translate(0);
+    }
+}
+
+.reg-manufacture {
+  margin: 32px 0 0;
+
+  &__item {
+    padding: 16px 0;
+    border-top: 1px solid #cecece;
+
+    &:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+}

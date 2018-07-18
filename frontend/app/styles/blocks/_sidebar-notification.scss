@@ -1,0 +1,27 @@
+.sidebar-notification {
+    margin: 0 0 24px;
+
+    &__headline {
+        max-width: 400px;
+    }
+}
+
+.sidebar-notification-list {
+    height: calc(100vh - 265px);
+    overflow: auto;
+}
+
+.sidebar-notification-item {
+    margin: 0 0 32px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__text {
+        margin: 12px 0 4px;
+    }
+    &__date {
+        font-size: 14px;
+        line-height: 1.14;
+        color: #abadb6;
+    }
+}

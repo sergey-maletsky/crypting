@@ -1,0 +1,26 @@
+.notifications-list {
+    margin: 24px 0 0;
+}
+
+.notifications-item {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background: #fff;
+    margin: 0 0 16px;
+    padding: 20px 32px;
+    border: 1px solid $azure;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__date {
+        width: 279px;
+    }
+    &__type {
+        width: 16px;
+        margin: 0 57px 0 0;
+    }
+    &__text {
+        width: 704px;
+    }
+}

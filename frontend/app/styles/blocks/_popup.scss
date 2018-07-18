@@ -1,0 +1,156 @@
+.outer-right-panel {
+  &.ng-leave {
+    transition: .1s;
+    transition-delay: .3s;
+    opacity: 1;
+
+    .popup-content {
+      animation: hidePopup .4s forwards;
+    }
+  }
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+}
+
+.popup {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $dark;
+    z-index: 999;
+
+    &.ng-leave {
+      transition: .1s;
+      transition-delay: .3s;
+      opacity: 1;
+    }
+    &.ng-leave.ng-leave-active {
+      opacity: 0;
+
+      .popup-content {
+        animation: hidePopup .4s forwards;
+      }
+    }
+
+    &.ng-enter {
+      transition: .2s;
+      opacity: 0;
+    }
+
+    &.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+
+    &-content {
+        position: relative;
+        padding: 32px 76px 40px 32px;
+        max-width: 560px;
+        height: 100%;
+        background: #fff;
+        margin: 0 0 0 auto;
+        overflow: auto;
+        z-index: 1;
+        animation: showPopup .4s forwards;
+    }
+    
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: rgba(35, 35, 35, 0.56);
+    }
+
+    &__close {
+      position: absolute;
+      right: 82px;
+      top: 55px;
+      background: none;
+      border: none;
+      width: 12px;
+      height: 12px;
+      cursor: pointer;
+      transition: .25s;
+      z-index: 3;
+
+      &:before,&:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 5px;
+        top: -1px;
+        width: 2px;
+        height: 14px;
+        background: $dark;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+      &:hover {
+        transform: rotate(90deg);
+        &:before,&:after {
+          background: $azure;
+        }
+      }
+    }
+
+    &__subtitle {
+        font-weight: 600;
+        margin-bottom: 27px;
+    }
+
+    &__list {
+        counter-reset: myCounter;
+        margin: 0 0 40px;
+
+        li {
+            position: relative;
+            list-style: none;
+            padding: 0 0 0 35px;
+            margin: 0 0 27px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:before {
+                counter-increment: myCounter;
+                content:counter(myCounter)'.';
+                position: absolute;
+                display: block;
+                left: 0;
+                top: -3px;
+                font-size: 24px;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+@keyframes showPopup {
+  from {
+    transform: translate(100%, 0);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+@keyframes hidePopup {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(100%, 0);
+  }
+}

@@ -1,0 +1,32 @@
+.wrapper {
+  overflow: hidden;
+}
+
+snm-layout {
+  position: relative;
+  display: block;
+  min-height: 100vh;
+  padding-bottom: 157px;
+}
+
+.page-content {
+  padding: 0 0 64px;
+}
+
+.main {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.justify {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

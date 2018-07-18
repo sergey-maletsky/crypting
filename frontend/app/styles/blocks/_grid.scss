@@ -1,0 +1,117 @@
+snm-grid-new {
+    display: block;
+    width: 100%;
+}
+
+.grid-layout {
+    background: #fff;
+    margin: 32px 0 0;
+}
+
+.grid-module {
+    padding: 16px 0 32px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.empty-grid {
+    padding: 16px 32px 8px;
+}
+
+.grid {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    background: #fff;
+
+    &__tr {
+        &._data {
+
+            &:hover {
+                background-color: #ebf4fa;
+            }
+        }
+
+        .icon__info {
+            cursor: pointer;
+            &:before, &:after {
+              transform: scale(0);
+              transition: .25s;
+            }
+        }
+
+        &:hover .icon__info {
+            &:before, &:after {
+                transform: scale(1);
+            }
+        }
+
+        .download > * {
+            &:before, &:after {
+                transform: scale(0);
+                transition: .25s;
+            }
+        }
+
+        &:hover .download > * {
+            &:before, &:after {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__th {
+        padding: 12px 0;
+        line-height: 1.57;
+        font-size: 14px;
+        font-weight: 600;
+
+        &-headline {
+            border-right: 1px solid #e6e6e6;
+            padding: 5px 16px;
+            white-space: nowrap;
+        }
+
+        &-sort {
+            display: inline-block;
+            vertical-align: middle;
+            width: 16px;
+            height: 16px;
+            background: url($icons + 'chevron-down.svg') no-repeat 0 -1px;
+            margin-left: 4px;
+        }
+
+        &:first-child {
+            padding-left: 16px;
+        }
+
+        &:last-child {
+            padding-right: 16px;
+        }
+
+        &:last-child &-headline {
+            border-right: none;
+        }
+    }
+
+    &__td {
+        padding: 6px 16px;
+        vertical-align: top;
+
+        &:first-child {
+            padding-left: 32px;
+        }
+
+        &:last-child {
+            padding-right: 32px;
+        }
+
+        &._remove {
+            text-align: center;
+        }
+    }
+
+    &__col {
+
+    }
+}
