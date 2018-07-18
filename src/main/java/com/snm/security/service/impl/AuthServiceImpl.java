@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -25,6 +26,9 @@ import static com.snm.security.dto.JsonResult.ErrorCode.NO_ERROR;
 public class AuthServiceImpl implements AuthService {
 
     private static final Logger log = LoggerFactory.getLogger(AuthServiceImpl.class);
+
+    @Value("${app.validate.user.certs.by.ca.strictly}")
+    private boolean validateUserCertsByCaStrictly;
 
     @Autowired
     private CertificateService certificateService;
@@ -48,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
         CertificateValidationResult certificateValidationResult;
         try {
             certificateValidationResult = certificateService.validateCertificate(data,
-                    randomValue);
+                    randomValue, validateUserCertsByCaStrictly);
         } catch (Exception e) {
             log.error("Error while process the certificate", e);
             throw new IncorrectCertificateException("Error while process the certificate. The certificate is incorrect");

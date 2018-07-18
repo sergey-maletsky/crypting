@@ -36,6 +36,7 @@ public class CertificateDto implements Serializable {
     private byte[] data;
     private String issuedBy;
     private String issuedSerialNumber;
+    private Long certificateAuthorityId;
 
     public CertificateDto() {
     }
@@ -230,6 +231,14 @@ public class CertificateDto implements Serializable {
 
     public void setIssuedSerialNumber(String issuedSerialNumber) {
         this.issuedSerialNumber = issuedSerialNumber;
+    }
+
+    public Long getCertificateAuthorityId() {
+        return certificateAuthorityId;
+    }
+
+    public void setCertificateAuthorityId(Long certificateAuthorityId) {
+        this.certificateAuthorityId = certificateAuthorityId;
     }
 
     @NotNull

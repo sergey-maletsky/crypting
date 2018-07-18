@@ -1,18 +1,22 @@
 package com.snm.security.service;
 
+import com.snm.security.dto.CertificateAuthorityDto;
 import com.snm.security.dto.CertificateDto;
+import com.snm.security.dto.CertificateRevocationListDto;
 import com.snm.security.dto.validation.CertificateValidationResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.springframework.transaction.annotation.Transactional;
 
 public interface CertificateService {
 
     @Nullable
-    @Transactional(readOnly = true)
     CertificateDto findUserCertificateBySerial(@NotNull String serial);
 
-    CertificateValidationResult validateCertificate(String data, String randomValue) throws Exception;
+    CertificateAuthorityDto findCertificateAuthorityBySerial(@NotNull String serial);
+
+    CertificateRevocationListDto findRevocationListBySerial(@NotNull String serial);
+
+    CertificateValidationResult validateCertificate(String data, String randomValue, boolean validateUserCertsByCaStrictly) throws Exception;
 
     boolean checkCertificatesAreDifferent(CertificateDto currentCertificate);
 

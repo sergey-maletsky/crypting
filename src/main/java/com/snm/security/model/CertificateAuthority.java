@@ -9,16 +9,16 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "user_certificate")
+@Table(name = "certificate_authority")
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCertificate {
+public class CertificateAuthority {
 
     @Id
-    @SequenceGenerator(name = "user_certificate_sequence", sequenceName = "user_certificate_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_certificate_sequence")
+    @SequenceGenerator(name = "certificate_authority_sequence", sequenceName = "certificate_authority_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "certificate_authority_sequence")
     private Long id;
 
     @Column(nullable = false)
@@ -33,16 +33,6 @@ public class UserCertificate {
     @Column(nullable = false)
     private Timestamp validityDateTo;
 
-    @Column
-    private String organisationName;
-
-    @Column
-    private String fullName;
-
-    @Column
-    private boolean revoked;
-
-    @Column
     @ManyToOne
     @JoinColumn(name = "certifying_id")
     private CertifyingCenter certifyingCenter;
@@ -85,30 +75,6 @@ public class UserCertificate {
 
     public void setValidityDateTo(Timestamp validityDateTo) {
         this.validityDateTo = validityDateTo;
-    }
-
-    public String getOrganisationName() {
-        return organisationName;
-    }
-
-    public void setOrganisationName(String organisationName) {
-        this.organisationName = organisationName;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public boolean isRevoked() {
-        return revoked;
-    }
-
-    public void setRevoked(boolean revoked) {
-        this.revoked = revoked;
     }
 
     public CertifyingCenter getCertifyingCenter() {

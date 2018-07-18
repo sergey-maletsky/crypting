@@ -14,7 +14,7 @@ public class UserCertificateToCertificateDtoConverter implements Converter<UserC
         CertificateDto dto = new CertificateDto();
         dto.setSerialNumber(certificate.getSerialNumber());
         dto.setValidityDateFrom(certificate.getValidityDateFrom().toInstant());
-        dto.setValidityDateUpTo(certificate.getValidityDateUpTo().toInstant());
+        dto.setValidityDateUpTo(certificate.getValidityDateTo().toInstant());
 
         return dto;
     }
