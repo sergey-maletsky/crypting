@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
 @PropertySource({
@@ -24,5 +26,10 @@ public class CryptingConfiguration {
         flyway.migrate();
 
         return flyway;
+    }
+
+    @Bean
+    public TaskScheduler taskScheduler() {
+        return new ThreadPoolTaskScheduler();
     }
 }

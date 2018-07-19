@@ -50,7 +50,7 @@ import java.util.stream.StreamSupport;
 @Service
 public class CertificationCentersUpdateImpl implements CertificationCentersUpdate {
 
-    private static final Logger logger = LoggerFactory.getLogger(CertificationCentersUpdateImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(CertificationCentersUpdateImpl.class);
 
     private static final char QUOTATION = '<';
     @Value("${incoming.file.date.pattern}")
@@ -85,7 +85,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
 
     public void run() {
 
-        logger.debug("Run job for update revocation certificates in " + new Date(System.currentTimeMillis()));
+        log.debug("Run job for update revocation certificates in " + new Date(System.currentTimeMillis()));
 
         encoding = Charset.forName(encodingName);
 
@@ -93,7 +93,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
         try {
             caListFile = fetchCaListFile();
         } catch (Exception e) {
-            logger.error("Error while getting document from URL.", e);
+            log.error("Error while getting document from URL.", e);
         }
 
         if (caListFile != null && caListFile.exists()) {
@@ -106,20 +106,20 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
             caListFile.deleteOnExit();
         }
 
-        logger.debug("End job for update revocation certificates in " + new Date(System.currentTimeMillis()));
+        log.debug("End job for update revocation certificates in " + new Date(System.currentTimeMillis()));
     }
 
     private void doCertificationsUpdate(AccreditedCertificationCenters acc) {
         try {
             updateCertifyingCenter(acc);
         } catch (Exception e) {
-            logger.error("Error while updating Certifying centers. ", e);
+            log.error("Error while updating Certifying centers. ", e);
         }
 
         try {
             updateCRLMeta(acc);
         } catch (Exception e) {
-            logger.error("Error while updating CRL meta data. ", e);
+            log.error("Error while updating CRL meta data. ", e);
         }
     }
 
@@ -137,7 +137,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
                         removeList.remove(inBaseCC);
 
                         if (actualCC.urlToInf == null) {
-                            logger.error("Update process was interrupted. Invalid data (urlToInf == null) in: " + actualCC);
+                            log.error("Update process was interrupted. Invalid data (urlToInf == null) in: " + actualCC);
                             break;
                         }
 
@@ -152,7 +152,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
             }
             em.flush();
 
-            certifyingCenterRepository.delete(removeList);
+            certifyingCenterRepository.delete((CertifyingCenter) removeList);
             em.flush();
             inBaseList.removeAll(removeList);
         });
@@ -169,7 +169,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
                 if (!found) {
 
                     if (actualCC.name == null || actualCC.urlToInf == null) {
-                        logger.error("Create process was interrupted. Invalid data (name == null || urlToInf == null) in: " + actualCC);
+                        log.error("Create process was interrupted. Invalid data (name == null || urlToInf == null) in: " + actualCC);
                         continue;
                     }
 
@@ -182,7 +182,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
 
                         if (actualC.serialNumber == null || actualC.data == null || actualC.validOf == null
                                 || actualC.validTo == null) {
-                            logger.error("Create process was interrupted. Invalid data in: " + actualC);
+                            log.error("Create process was interrupted. Invalid data in: " + actualC);
                             continue;
                         }
 
@@ -213,7 +213,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
                     if (inBaseC.getSerialNumber().equals(ConversionUtil.hexStringToDecimalString(actualC.serialNumber))) {
 
                         if (actualC.data == null || actualC.validOf == null || actualC.validTo == null) {
-                            logger.error("Update process was interrupted. Invalid data in: " + actualC);
+                            log.error("Update process was interrupted. Invalid data in: " + actualC);
                             break;
                         }
 
@@ -252,7 +252,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
         try {
             certFactory = CertificateFactory.getInstance("X.509");
         } catch (CertificateException e) {
-            logger.error("Error while getting certificate factory. ", e);
+            log.error("Error while getting certificate factory. ", e);
             return;
         }
 
@@ -279,11 +279,11 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
         List<CertifyingCenter> certifyingCenters = certifyingCenterRepository.findByName(center.name);
 
         if (certifyingCenters.isEmpty()) {
-            logger.error("Create process was interrupted. CertifyingCenterEntity with name: " + center.name + "not found in base.");
+            log.error("Create process was interrupted. CertifyingCenterEntity with name: " + center.name + "not found in base.");
             return;
         }
         if (crl.getSigAlgName() == null || crl.getThisUpdate() == null) {
-            logger.error("Create process was interrupted. Invalid data in: " + crl);
+            log.error("Create process was interrupted. Invalid data in: " + crl);
             return;
         }
 
@@ -307,7 +307,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
                 }
 
                 if (revokedC.getSerialNumber() == null || revokedC.getRevocationDate() == null) {
-                    logger.error("Create process was interrupted. Invalid data in: " + revokedC);
+                    log.error("Create process was interrupted. Invalid data in: " + revokedC);
                     continue;
                 }
 
@@ -340,7 +340,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
                 found[0] = true;
 
                 if (crl.getSigAlgName() == null || crl.getThisUpdate() == null) {
-                    logger.error("Update process was interrupted. Invalid data in: " + crl);
+                    log.error("Update process was interrupted. Invalid data in: " + crl);
                     break;
                 }
 
@@ -365,7 +365,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
             InputStream crlStream = response.getEntity().getContent();
             crl = (X509CRL) certFactory.generateCRL(crlStream);
         } catch (IOException | CRLException e) {
-            logger.error(revocation + " | " + e.toString());
+            log.error(revocation + " | " + e.toString());
         } finally {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
@@ -381,7 +381,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
             Date date = format.parse(stringDate);
             return new Timestamp(date.getTime());
         } catch (ParseException e) {
-            logger.error("Error parsing date: " + stringDate, e);
+            log.error("Error parsing date: " + stringDate, e);
             return null;
         }
     }
@@ -398,7 +398,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
         try (OutputStream output = new FileOutputStream(caListFile)) {
             ByteStreams.copy(data, output);
         } catch (Exception e) {
-            logger.error("Error during saving temp file " + caListFile.getPath(), e);
+            log.error("Error during saving temp file " + caListFile.getPath(), e);
         }
         return caListFile;
     }
@@ -413,7 +413,7 @@ public class CertificationCentersUpdateImpl implements CertificationCentersUpdat
 
             return (AccreditedCertificationCenters) unmarshaller.unmarshal(reader);
         } catch (Exception e) {
-            logger.error("Error while parsing document.", e);
+            log.error("Error while parsing document.", e);
             return null;
         }
     }

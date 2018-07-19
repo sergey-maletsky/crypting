@@ -12,7 +12,7 @@ II Configuring database
 Database connection settings are in the follow file:
 src/main/resources/spring/database.properties
 
-1. Install PostgreSQL 9.3
+1. Install PostgreSQL 9.6
 2. Execute the createdb.sql script within PostgreSQL 
 console under superuser(it's postgres in here): 
 psql -U postgres -a -f createdb.sql
