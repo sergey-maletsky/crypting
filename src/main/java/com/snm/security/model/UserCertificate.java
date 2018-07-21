@@ -42,7 +42,6 @@ public class UserCertificate {
     @Column
     private boolean revoked;
 
-    @Column
     @ManyToOne
     @JoinColumn(name = "certifying_id")
     private CertifyingCenter certifyingCenter;
