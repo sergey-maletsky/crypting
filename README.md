@@ -21,7 +21,7 @@ The script will add "crypting" database as well as
 add new user with name "crypter" with access rights only to this database. 
 
 III Build automation tool
-Thereis Gradle as a build automation tool in this project.
+There is Gradle as a build automation tool in this project.
 
 To build and run project you could execute following
 command in the terminate or console while you are in 
@@ -33,3 +33,7 @@ the root of project:
    1) npm i
    2) bower i
    3) gulp watch-dev
+5. Go to https://localhost:3000/
+6. To get a test certificate you could visit https://www.cryptopro.ru/sites/default/files/products/cades/demopage/main.html 
+and go by a link on "Проверить работу установленного плагина" line 
+or go by a link on "Cертификат ключа подписи, который можно получить на странице тестового центра"
