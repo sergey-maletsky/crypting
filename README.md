@@ -45,3 +45,10 @@ All below properties are located in the application.properties file.
 To check a chain of certificate you can set update.certifications.job.is.switch.on and app.validate.user.certs.by.ca.strictly properties to true. 
 Also you can update certifying center certificates while starting the application by running the certifications job. To do certifications job was available you need to set app.run.ca.update.while.starting to true 
 By default it is set to the false value for test aims.
+
+V JCP Installing
+
+There is jcp-2.0.39442.zip archive in the root of the project that you need to unzip anywhere.
+1. go to the unziped jcp directory
+2. execute "sudo ./setup_console.sh /usr/lib/jvm/java-<version>-oracle" command if you use Linux or "setup_console.bat /usr/lib/jvm/java-<version>-oracle" if you use Windows
+
