@@ -37,3 +37,11 @@ the root of project:
 6. To get a test certificate you could visit https://www.cryptopro.ru/sites/default/files/products/cades/demopage/main.html 
 and go by a link on "Проверить работу установленного плагина" line 
 or go by a link on "Cертификат ключа подписи, который можно получить на странице тестового центра"
+
+IV Using certifying center certificates
+
+All below properties are located in the application.properties file.
+
+To check a chain of certificate you can set update.certifications.job.is.switch.on and app.validate.user.certs.by.ca.strictly properties to true. 
+Also you can update certifying center certificates while starting the application by running the certifications job. To do certifications job was available you need to set app.run.ca.update.while.starting to true 
+By default it is set to the false value for test aims.

@@ -83,6 +83,7 @@ public class AuthServiceImpl implements AuthService {
                 throw new NotUniqueException("Сертификат уже существует в системе");
             }
 
+            result.setMessage("Вы зарегистрировались в системе");
             result.setResult(certificateService.saveUserCertificate(certificateDto));
         } else {
             if (Objects.isNull(existingCertificateDto)) {

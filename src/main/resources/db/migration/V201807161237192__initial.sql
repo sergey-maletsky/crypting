@@ -13,6 +13,8 @@ CREATE TABLE certifying_center (
 CREATE UNIQUE INDEX IF NOT EXISTS ca_name_indx
   ON certifying_center (name);
 
+INSERT INTO certifying_center (id, name, url) values (-1, 'Stub CA',	'http://stub-ca.io');
+
 CREATE TABLE certificate_authority (
   id BIGINT PRIMARY KEY NOT NULL,
   serial_number VARCHAR(255) NOT NULL DEFAULT '',

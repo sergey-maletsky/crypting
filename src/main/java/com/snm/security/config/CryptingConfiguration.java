@@ -19,6 +19,7 @@ public class CryptingConfiguration {
     @SuppressWarnings("SpringJavaAutowiringInspection")
     @Bean
     public Flyway flyway(DataSource dataSource) {
+
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource);
         flyway.setOutOfOrder(true);
