@@ -55,3 +55,7 @@ dependencies {
     compile("org.flywaydb:flyway-core:4.2.0")
     compile("org.postgresql:postgresql:42.2.4")
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
