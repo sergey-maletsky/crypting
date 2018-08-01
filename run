@@ -1,0 +1,5 @@
+#!/bin/bash
+
+./gradlew clean build && java -jar build/libs/crypting-1.0.0.jar &
+cd frontend/
+npm i && bower i && gulp watch-dev
